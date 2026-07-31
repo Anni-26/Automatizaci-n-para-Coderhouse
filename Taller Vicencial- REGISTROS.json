@@ -1,0 +1,1062 @@
+{
+  "name": "Taller Vicencial- REGISTROS",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyX",
+              "value": 5,
+              "unit": "minutes"
+            },
+            {
+              "mode": "everyX",
+              "value": 5,
+              "unit": "minutes"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "11s4D4fimMMjN20qh84SaRN5ht5J0psre_vB3u-uk52s",
+          "mode": "list",
+          "cachedResultName": "Taller vivencial  (Respuestas)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11s4D4fimMMjN20qh84SaRN5ht5J0psre_vB3u-uk52s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 491412922,
+          "mode": "list",
+          "cachedResultName": "Respuestas de formulario 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11s4D4fimMMjN20qh84SaRN5ht5J0psre_vB3u-uk52s/edit#gid=491412922"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "76ec40f8-0e0c-4e91-ab48-9655d97dd380",
+      "name": "Google Sheets Trigger",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "7fNTbfhczLXaB5IH",
+          "name": "Google Sheets Trigger account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appfs11VLulAGbECV",
+          "mode": "list",
+          "cachedResultName": "Datos Taller",
+          "cachedResultUrl": "https://airtable.com/appfs11VLulAGbECV"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblT83zD4lMYtz8WF",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appfs11VLulAGbECV/tblT83zD4lMYtz8WF"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "NOMBRE": "={{ $json['¿Cuál es tu nombre? '] }}",
+            "CORREO": "={{ $json['¿Cuál es tu correo electrónico?  '] }}",
+            "ESTADO": "PENDIENTE",
+            "¿Qué expectativas tienes del  taller o por qué te interesa participar?": "={{ $json['¿Qué expectativas tienes del  taller o por qué te interesa participar?  '] }}",
+            "¿Hay algo que quieras compartir antes de llegar?  ": "={{ $json['¿Hay algo que quieras compartir antes de llegar?  '] }}",
+            "Fecha de registro": "={{ $now }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "NOMBRE",
+              "displayName": "NOMBRE",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CORREO",
+              "displayName": "CORREO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ESTADO",
+              "displayName": "ESTADO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "PENDIENTE",
+                  "value": "PENDIENTE"
+                },
+                {
+                  "name": "PROCESADO POR IA",
+                  "value": "PROCESADO POR IA"
+                },
+                {
+                  "name": "APROBADO POR HUMANO",
+                  "value": "APROBADO POR HUMANO"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "¿Qué expectativas tienes del  taller o por qué te interesa participar?",
+              "displayName": "¿Qué expectativas tienes del  taller o por qué te interesa participar?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "¿Hay algo que quieras compartir antes de llegar?  ",
+              "displayName": "¿Hay algo que quieras compartir antes de llegar?  ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Mensaje generado por IA",
+              "displayName": "Mensaje generado por IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de registro",
+              "displayName": "Fecha de registro",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "NOTAS DE ERROR",
+              "displayName": "NOTAS DE ERROR",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "e9814fb3-08ba-456b-8d77-8623a7cf62f1",
+      "name": "Create a record",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "tefkKfrRCUGMmPFg",
+          "name": "Airtable account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-3.1-flash-lite",
+          "mode": "list",
+          "cachedResultName": "models/gemini-3.1-flash-lite"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Redacta el mensaje de confirmación para:\nNombre:{{ $json.fields.NOMBRE }} \nExpectativas que compartió:{{ $json.fields['¿Qué expectativas tienes del  taller o por qué te interesa participar?'] }} \nComentario adicional:{{ $json.fields['¿Hay algo que quieras compartir antes de llegar?  '] }} "
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {
+          "systemMessage": "Eres el asistente de comunicación de LATENTE, un espacio de bienestar y movimiento consciente. Tu tarea es redactar un mensaje breve, cálido y personalizado confirmando la inscripción de una persona al taller DETONA. Usa un tono cercano, humano y motivador, nunca genérico ni robótico. Máximo 80 palabras. No inventes información que no se te haya dado."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        624,
+        0
+      ],
+      "id": "388c3283-6e73-41f3-8471-ffe4d96cd54a",
+      "name": "Message a model",
+      "retryOnFail": true,
+      "waitBetweenTries": 3000,
+      "notesInFlow": true,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "j2vnWsnCII9CUTUp",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "notes": "Nodo de IA — Gemini genera mensaje personalizado. \n3 reintentos automáticos si falla la API."
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appfs11VLulAGbECV",
+          "mode": "list",
+          "cachedResultName": "Datos Taller",
+          "cachedResultUrl": "https://airtable.com/appfs11VLulAGbECV"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblT83zD4lMYtz8WF",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appfs11VLulAGbECV/tblT83zD4lMYtz8WF"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Create a record').item.json.id }}",
+            "Mensaje generado por IA": "={{ $json.content.parts[0].text }}",
+            "ESTADO": "PROCESADO POR IA"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "NOMBRE",
+              "displayName": "NOMBRE",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CORREO",
+              "displayName": "CORREO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ESTADO",
+              "displayName": "ESTADO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "PENDIENTE",
+                  "value": "PENDIENTE"
+                },
+                {
+                  "name": "PROCESADO POR IA",
+                  "value": "PROCESADO POR IA"
+                },
+                {
+                  "name": "APROBADO POR HUMANO",
+                  "value": "APROBADO POR HUMANO"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "¿Qué expectativas tienes del  taller o por qué te interesa participar?",
+              "displayName": "¿Qué expectativas tienes del  taller o por qué te interesa participar?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "¿Hay algo que quieras compartir antes de llegar?  ",
+              "displayName": "¿Hay algo que quieras compartir antes de llegar?  ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Mensaje generado por IA",
+              "displayName": "Mensaje generado por IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de registro",
+              "displayName": "Fecha de registro",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "NOTAS DE ERROR",
+              "displayName": "NOTAS DE ERROR",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        976,
+        0
+      ],
+      "id": "e03c4390-f4fc-4487-8b41-e55323a64f15",
+      "name": "Update record",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "tefkKfrRCUGMmPFg",
+          "name": "Airtable account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "sendTo": "habitable.88@gmail.com",
+        "subject": "Nueva solicitud de aprobación — Registro TALLER",
+        "message": "=Hola Lau,\n\nHay un nuevo registro para el taller DETONA que requiere tu aprobación.\n\nDATOS DEL PARTICIPANTE:\n\n- Nombre: {{ $json.fields['NOMBRE'] }}\n- Email: {{ $json.fields['CORREO'] }}\n\nLO QUE ESPERA VIVIR:{{ $json.fields['¿Qué expectativas tienes del  taller o por qué te interesa participar?'] }}\nMENSAJE GENERADO POR IA:\n{{ $json.fields['Mensaje generado por IA'] }}\n\n¿Apruebas el envío de este mensaje al participante?",
+        "approvalOptions": {
+          "values": {
+            "approvalType": "double"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1184,
+        0
+      ],
+      "id": "211fe97c-5663-483c-9ca6-ff1960aafb1f",
+      "name": "Send message and wait for response",
+      "webhookId": "94390eba-8ee6-4ffa-830d-8d7f4df717a9",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "KAlWGjrFbSqpZcxw",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Create a record').item.json.fields['CORREO'] }}",
+        "subject": "¡Tu lugar en el taller está confirmado! 🌿",
+        "message": "=Hola {{ $('Create a record').item.json.fields['NOMBRE'] }},  Nos da mucho gusto confirmarte que tu lugar en el taller DETONA está reservado.  Aquí tienes todo lo que necesitas saber para prepararte:  📍 Modalidad: Presencial / En línea 📅 Fecha: [agrega la fecha aquí] ⏰ Hora: [agrega la hora aquí]  Lo único que necesitas traer es disposición para moverte, sentir y descubrir.  Si tienes alguna pregunta antes del taller, responde a este correo y con gusto te atendemos.  ¡Nos vemos pronto!  Con cariño, Lau LATENTE",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1808,
+        0
+      ],
+      "id": "f4478078-5d0a-4a0b-bc3a-81c589e272ab",
+      "name": "Send a message",
+      "webhookId": "bce1dd61-0852-44fd-89e6-4109ebcd403c",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "KAlWGjrFbSqpZcxw",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "habitable.88@gmail.com",
+        "subject": "[ERROR] Fallo en procesamiento — Registro DETONA",
+        "message": "=Hola Lau,  Hubo un error al procesar un registro con la IA.  DATOS DEL PARTICIPANTE: - Nombre: {{ $('Google Sheets Trigger').item.json['Nombre completo'] }} - Email: {{ $('Google Sheets Trigger').item.json['Correo electrónico'] }}  Error detectado: {{ $json.error.message }}  Por favor revisa el flujo en n8n para resolverlo manualmente.  LATENTE — Sistema automático",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1040,
+        160
+      ],
+      "id": "02210544-7d4c-44f2-8bec-39bdaa50be11",
+      "name": "Send a message1",
+      "webhookId": "c966749a-c117-42c0-83f2-a09fc24cba97",
+      "notesInFlow": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "KAlWGjrFbSqpZcxw",
+          "name": "Gmail account"
+        }
+      },
+      "notes": "Nodo de error — Envía alerta a Lau si Gemini falla.\nActiva Display Note in Flow."
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "95245b5b-644e-4406-94bb-98a73d4ef10f",
+              "leftValue": "={{ $json.data.approved }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1392,
+        0
+      ],
+      "id": "f040324f-ba3e-4f3c-afdc-8c6b570da9e4",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appfs11VLulAGbECV",
+          "mode": "list",
+          "cachedResultName": "Datos Taller",
+          "cachedResultUrl": "https://airtable.com/appfs11VLulAGbECV"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblT83zD4lMYtz8WF",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appfs11VLulAGbECV/tblT83zD4lMYtz8WF"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Create a record').item.json.id }}",
+            "ESTADO": "APROBADO POR HUMANO"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "NOMBRE",
+              "displayName": "NOMBRE",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CORREO",
+              "displayName": "CORREO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ESTADO",
+              "displayName": "ESTADO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "PENDIENTE",
+                  "value": "PENDIENTE"
+                },
+                {
+                  "name": "PROCESADO POR IA",
+                  "value": "PROCESADO POR IA"
+                },
+                {
+                  "name": "APROBADO POR HUMANO",
+                  "value": "APROBADO POR HUMANO"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "¿Qué expectativas tienes del  taller o por qué te interesa participar?",
+              "displayName": "¿Qué expectativas tienes del  taller o por qué te interesa participar?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "¿Hay algo que quieras compartir antes de llegar?  ",
+              "displayName": "¿Hay algo que quieras compartir antes de llegar?  ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Mensaje generado por IA",
+              "displayName": "Mensaje generado por IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de registro",
+              "displayName": "Fecha de registro",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "NOTAS DE ERROR",
+              "displayName": "NOTAS DE ERROR",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        1600,
+        0
+      ],
+      "id": "35794eb2-8f99-4d0a-84c5-7fdc1af5beb7",
+      "name": "Update record1",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "tefkKfrRCUGMmPFg",
+          "name": "Airtable account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "habitable.88@gmail.com",
+        "subject": "Registro rechazado — Taller ",
+        "message": "=Rechazaste el registro de {{ $('Create a record').item.json.fields.NOMBRE }}. No se envió confirmación al participante.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1648,
+        144
+      ],
+      "id": "6bdb1a17-2aef-4e21-a115-0fbd24d840eb",
+      "name": "Send a message2",
+      "webhookId": "2ee4544a-741a-4a66-9dd4-e8145027eefc",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "KAlWGjrFbSqpZcxw",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "955adcc3-5889-45e7-b753-069cd0f3c8b7",
+              "leftValue": "={{ $json.fields.CORREO }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        416,
+        0
+      ],
+      "id": "a3820211-e82b-45b2-ad02-ce91c6ae32dd",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appfs11VLulAGbECV",
+          "mode": "list",
+          "cachedResultName": "Datos Taller",
+          "cachedResultUrl": "https://airtable.com/appfs11VLulAGbECV"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblT83zD4lMYtz8WF",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/appfs11VLulAGbECV/tblT83zD4lMYtz8WF"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Create a record').item.json.id }}",
+            "NOTAS DE ERROR": "={{ \"Falta correo electrónico válido — registro de: \" + $('Create a record').item.json.fields.NOMBRE }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "NOMBRE",
+              "displayName": "NOMBRE",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "CORREO",
+              "displayName": "CORREO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ESTADO",
+              "displayName": "ESTADO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "PENDIENTE",
+                  "value": "PENDIENTE"
+                },
+                {
+                  "name": "PROCESADO POR IA",
+                  "value": "PROCESADO POR IA"
+                },
+                {
+                  "name": "APROBADO POR HUMANO",
+                  "value": "APROBADO POR HUMANO"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "¿Qué expectativas tienes del  taller o por qué te interesa participar?",
+              "displayName": "¿Qué expectativas tienes del  taller o por qué te interesa participar?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "¿Hay algo que quieras compartir antes de llegar?  ",
+              "displayName": "¿Hay algo que quieras compartir antes de llegar?  ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Mensaje generado por IA",
+              "displayName": "Mensaje generado por IA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de registro",
+              "displayName": "Fecha de registro",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "NOTAS DE ERROR",
+              "displayName": "NOTAS DE ERROR",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        672,
+        144
+      ],
+      "id": "fdb0c3f3-f99b-4669-86b2-570c8b6dfe32",
+      "name": "Update record2",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "tefkKfrRCUGMmPFg",
+          "name": "Airtable account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "habitable.88@gmail.com",
+        "subject": "⚠️ Registro incompleto — Taller DETONA",
+        "message": "={{ \"Hay un registro incompleto que no se pudo procesar: \" + $('Create a record').item.json.fields.NOMBRE + \". Falta el correo electrónico. Por favor revísalo manualmente en Airtable.\" }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        832,
+        288
+      ],
+      "id": "b76f1112-524a-45ba-a37c-436fdaa2a4a8",
+      "name": "Send a message3",
+      "webhookId": "690e2b24-2a58-4006-81c3-7a3baa484b5e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "KAlWGjrFbSqpZcxw",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a record": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Update record",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update record": {
+      "main": [
+        [
+          {
+            "node": "Send message and wait for response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send message and wait for response": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Update record1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update record1": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update record2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update record2": {
+      "main": [
+        [
+          {
+            "node": "Send a message3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "87b1c12e-6a40-4593-9c5d-1a36742ca60c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b6e2f2971244c0143c9ce8733ad3ceb82a3780203f704cc77dd8a4947a7e1f51"
+  },
+  "nodeGroups": [],
+  "id": "QQvgDBamuQn72ucE",
+  "tags": []
+}
